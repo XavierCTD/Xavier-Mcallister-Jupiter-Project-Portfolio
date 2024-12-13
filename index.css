@@ -31,14 +31,21 @@ li {
   margin: 10px 30px;
 }
 
-#Experience, #Connect {
+#Experience {
   display: flex;
   border: 5px groove blueaqua;
   float: left;
   padding: 8px;
 }
 
-.btn {
+#Connect {
+  display: flex;
+  border: 5px groove blueaqua;
+  float: left;
+  padding: 8px;
+}
+
+.button {
   text-align: center;
   background: linear-gradient(rgb(32, 25, 20), rgb(100, 45, 250), rgb(32, 25, 20));
   border: 5px solid lightgreen;
