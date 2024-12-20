@@ -1,4 +1,11 @@
 body {
+<<<<<<< Updated upstream
+=======
+  background-image: url('file:///c:/Users/rcxma/Downloads/Designer.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+>>>>>>> Stashed changes
   background-color: lightgray;
   font-family: sans-serif;
   font-size: 30px;
