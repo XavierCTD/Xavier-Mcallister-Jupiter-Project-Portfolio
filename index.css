@@ -40,6 +40,17 @@ p {
   text-align: center;
 }
 
+fieldset {
+  background: linear-gradient(rgb(200, 10, 10), rgb(100, 45, 250), rgb(200, 10, 10));
+  border: none;
+  padding: 2rem;
+}
+
+textarea {
+  margin: 10px 0 0 0;
+  width: 100%;
+}
+
 /* Id Elements */
 
 #Projects, #About, #Experience, #Connect, #Leave_Message, #messages {
