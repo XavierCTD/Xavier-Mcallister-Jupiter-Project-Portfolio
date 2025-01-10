@@ -51,6 +51,7 @@ textarea {
   width: 100%;
 }
 
+
 /* Id Elements */
 
 #Projects, #About, #Experience, #Connect, #Leave_Message, #messages {
@@ -70,6 +71,7 @@ textarea {
   max-width: fit-content;
   max-height: 1500px;
 }
+
 
 #projects-list {
   display: flex;
@@ -99,6 +101,7 @@ textarea {
   color: lightgreen;
   text-decoration: none;
 }
+
 
 /* Class Elements */
 
@@ -186,6 +189,7 @@ textarea {
 .users_info {
   margin: 0 auto;
 }
+
 
 /* Media Elements */
 
