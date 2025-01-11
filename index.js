@@ -22,7 +22,7 @@ footer.appendChild(copyright);
 
 const useSkills = ["JavaScript", "HTML", "CSS", "Very good with video games"];
 const skillsSection = document.getElementById('skills-list');
-const skillsList = skillsSection.querySelector('ul');
+const skillsList = document.querySelector('ul');
 
 for(let i = 0; i < useSkills.length; i++) {
   const skill = document.createElement('li');
