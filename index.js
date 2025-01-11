@@ -8,7 +8,7 @@ useFooter.style.textAlign = "center";
 useFooter.style.fontSize = "4rem";
 contentFooter.appendChild(useFooter);
 
-// Adding Date and Copyright
+// Adding Date
 
 const today = new Date();
 const thisYear = today.getFullYear();
@@ -16,3 +16,10 @@ const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
 copyright.textContent = `Xavier Mcallister ${thisYear}.`;
 footer.appendChild(copyright);
+
+
+// Adding Skills
+
+const useSkills = ["JavaScript", "HTML", "CSS", "Very good with video games"];
+const skillsSection = document.getElementById('skills-list');
+const skillsList = document.querySelector('skillsSection');
