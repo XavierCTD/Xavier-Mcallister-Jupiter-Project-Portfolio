@@ -28,6 +28,7 @@ ul, li {
 
 ul {
   text-align: center;
+  display: flex;
 }
 
 li {
