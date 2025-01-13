@@ -29,16 +29,20 @@ ul, li {
 ul {
   text-align: center;
   display: flex;
+  font-size: 2rem;
+  background-color: rgb(50, 52, 63);
 }
 
 li {
   text-align: left;
   margin: 10px 30px;
+  max-width: fit-content;
 }
 
 p {
   color: lightgreen;
   text-align: center;
+  background-color: rgb(50, 52, 63);
 }
 
 fieldset {
