@@ -29,3 +29,19 @@ for(let i = 0; i < useSkills.length; i++) {
   skill.innerText = useSkills[i];
   skillsList.appendChild(skill);
 }
+
+// Adding a Message Form
+
+const messageForm = document.querySelector('form[name="leave_message"]');
+messageForm.addEventListener("submit", function (event) => {
+  event.preventDefault();
+  event.target.usersName.value;
+  event.target.usersEmail.value;
+  event.target.usersMessage.value;
+
+  console.log("User's Name:", usersName);
+  console.log("User's Email:", usersEmail);
+  console.log("User's Message:", usersMessage);
+
+  messageForm.reset();
+});

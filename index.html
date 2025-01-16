@@ -32,8 +32,7 @@
           <li><a href="https://github.com/XavierCTD/Xavier-Mcallister-Code-The-Dream-First-Project/tree/main">Xavier's First Code The Dream Project</a></li>
         </ul>
       </section>
-    </header>
-     <main>
+      
        <section id="About">
          <h2><span class="flex">about:</span></h2>
          <p>I have a cat that I love very much. It's a female cat and her name is Zoey.<br /> She is right now 4 years old.</p>
@@ -52,6 +51,13 @@
           </li>
          </ul>
        </section>
+         <nav>
+         <ul>
+           <li><a href="#leave-message">Leave a Message</a></li>
+         </ul>
+         </nav>
+    </header>
+     <main>
      </main>
      <section id="messages">
       <h2><span class="flex">Messages</span></h2>
@@ -59,7 +65,7 @@
       <footer id="timing"></footer>
      </section> 
     
-   <section id="Leave_Message">
+   <section id="leave-message">
      <h2><span class="flex">Leave a Message</span></h2>
        <form name="leave_message">
          <label id="data" name="username">Username:</label>
@@ -72,6 +78,12 @@
                   type="email" 
                   name="usersEmail"
                   required="true" /><br />
+         <label id="data" name="message">
+           <textarea class="users-info"
+                     name="usersMessage"
+                     required="true">
+           </textarea><br />
+         </label>
          <button class="accept" type="submit">
            Submit
          </button>
