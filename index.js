@@ -32,8 +32,8 @@ for(let i = 0; i < useSkills.length; i++) {
 
 // Adding a Message Form
 
-const messageForm = document.querySelector('form[name="leave_message"]');
-messageForm.addEventListener("submit", function (event) => {
+const messageForm = document.forms["leave_message"];
+messageForm.addEventListener("submit", function (event) {
   event.preventDefault();
   event.target.usersName.value;
   event.target.usersEmail.value;
