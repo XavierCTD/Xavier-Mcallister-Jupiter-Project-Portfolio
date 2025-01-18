@@ -35,13 +35,37 @@ for(let i = 0; i < useSkills.length; i++) {
 const messageForm = document.forms["leave_message"];
 messageForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  event.target.usersName.value;
-  event.target.usersEmail.value;
-  event.target.usersMessage.value;
+  
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
 
   console.log("User's Name:", usersName);
   console.log("User's Email:", usersEmail);
   console.log("User's Message:", usersMessage);
 
+  const messageSection = document.getElementById('messages');
+  const messageList = messageSection.querySelector('ul');
+  const newMessage = document.createElement('li');
+  
+  newMessage.innerHTML = `<a href="mailto:${usersName}"> ${usersEmail}</a>
+  <span>${usersMessage}</span>`
+
+  messageList.appendChild(newMessage);
+
   messageForm.reset();
+
+  const removeButton = document.createElement('button');
+  removeButton.innerText = 'remove';
+  removeButton.type = 'button';
+  remvoveButton.addEventListener("click", function (event) {
+    const entry = removeButton.parentNode;
+    entry.remove();
+  })
+
+  newMessage.appendChild(removeButton);
+
+  messageList.appendChild(newMessage);
+
+  event.target.reset();
 });
