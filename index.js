@@ -12,7 +12,7 @@ contentFooter.appendChild(useFooter);
 
 const today = new Date();
 const thisYear = today.getFullYear();
-const footer = document.querySelector('footer');
+const footer = document.getElementById('timing');
 const copyright = document.createElement('p');
 copyright.textContent = `Xavier Mcallister ${thisYear}.`;
 footer.appendChild(copyright);
