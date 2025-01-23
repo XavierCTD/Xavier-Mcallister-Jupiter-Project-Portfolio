@@ -69,3 +69,28 @@ messageForm.addEventListener("submit", function (event) {
 
   event.target.reset();
 });
+
+
+// Github Repositories API
+
+
+const GithubUsername = 'macfamlove01@gmail.com';
+const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
+
+fetch(urlToUsername)
+  .then(response => {
+    if (!response.ok) {
+      throw new error(`HTTP Error: ${response.status} - ${response.statusText}`);
+    }
+    return response.json();
+  })
+  .then(repositories => {
+    console.log(repositories);
+  })
+  .catch(error => {
+    console.error('Error fetching repositories:', error.message);
+    alert('Could not fetch repositories.');
+  });
+
+
+// Displaying Repositories
