@@ -8,6 +8,7 @@ useFooter.style.textAlign = "center";
 useFooter.style.fontSize = "4rem";
 contentFooter.appendChild(useFooter);
 
+
 // Adding Date
 
 const today = new Date();
@@ -29,6 +30,7 @@ for(let i = 0; i < useSkills.length; i++) {
   skill.innerText = useSkills[i];
   skillsList.appendChild(skill);
 }
+
 
 // Adding a Message Form
 
@@ -73,7 +75,6 @@ messageForm.addEventListener("submit", function (event) {
 
 // Github Repositories API
 
-
 const GithubUsername = 'macfamlove01@gmail.com';
 const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
 
@@ -86,11 +87,19 @@ fetch(urlToUsername)
   })
   .then(repositories => {
     console.log(repositories);
+    
+    const projectSection = document.getElementById('Projects');
+    const projectList = projectSection.querySelector('ul');
+
+    for(let i = 0; i < repositories.length; i++) {
+    const project = document.createElement('li');
+     project.innerText = repsitories[i].name;
+     projectList.appandChild(projectSection);
+   }
   })
   .catch(error => {
-    console.error('Error fetching repositories:', error.message);
-    alert('Could not fetch repositories.');
+    console.error('There was a problem with the fetch operation:', error);
+    projectSection.innerText = 'Error: Could not load projects.';
   });
 
 
-// Displaying Repositories
