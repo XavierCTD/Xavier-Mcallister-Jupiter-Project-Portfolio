@@ -79,13 +79,13 @@ const GithubUsername = 'macfamlove01@gmail.com';
 const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
 
 fetch(urlToUsername)
-  .then(response => {
+  .then((response) => {
     if (!response.ok) {
       throw new error(`HTTP Error: ${response.status} - ${response.statusText}`);
     }
     return response.json();
   })
-  .then(repositories => {
+  .then((repositories) => {
     console.log(repositories);
     
     const projectSection = document.getElementById('Projects');
@@ -97,7 +97,7 @@ fetch(urlToUsername)
      projectList.appandChild(projectSection);
    }
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('There was a problem with the fetch operation:', error);
     projectSection.innerText = 'Error: Could not load projects.';
   });
