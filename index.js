@@ -75,31 +75,34 @@ messageForm.addEventListener("submit", function (event) {
 
 // Github Repositories API
 
-const GithubUsername = 'macfamlove01@gmail.com';
-const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
+const url = `https://github.com/XavierCTD/Xavier-Mcallister-Code-The-Dream-First-Project/tree/main`
 
-fetch(urlToUsername)
-  .then(response => {
+fetch(url)
+  .then((response) => {
     if (!response.ok) {
-      throw new error(`HTTP Error: ${response.status} - ${response.statusText}`);
+      throw new error(`HTTP Error: Network response was not OK  ${response.status}`);
     }
     return response.json();
   })
-  .then(repositories => {
+  .then((repositories) => {
     console.log(repositories);
     
     const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul');
 
-    for(let i = 0; i < repositories.length; i++) {
-    const project = document.createElement('li');
-     project.innerText = repsitories[i].name;
-     projectList.appandChild(projectSection);
-   }
+    repositories.forEach((repos) => {
+      const project = document.createElement('li');
+      project.innerText = repos.name;
+      projectList.appendChild(project);
+    });
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('There was a problem with the fetch operation:', error);
-    projectSection.innerText = 'Error: Could not load projects.';
+
+    const projectSection = document.getElementById('Projects');
+    const errorMessage = document.createElement('p');
+    errorMessage.innerText = 'Error: Could not load projects.';
+    projectSection.appendChild(errorMessage);
   });
 
 
