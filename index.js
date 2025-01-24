@@ -75,7 +75,7 @@ messageForm.addEventListener("submit", function (event) {
 
 // Github Repositories API
 
-const GithubUsername = 'macfamlove01@gmail.com';
+const GithubUsername = 'XavierCTD';
 const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
 
 fetch(urlToUsername)
