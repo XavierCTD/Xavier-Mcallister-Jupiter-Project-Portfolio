@@ -60,7 +60,7 @@ messageForm.addEventListener("submit", function (event) {
   const removeButton = document.createElement('button');
   removeButton.innerText = 'remove';
   removeButton.type = 'button';
-  remvoveButton.addEventListener("click", function (event) {
+  removeButton.addEventListener("click", function (event) {
     const entry = removeButton.parentNode;
     entry.remove();
   })
@@ -75,13 +75,13 @@ messageForm.addEventListener("submit", function (event) {
 
 // Github Repositories API
 
-const GithubUsername = 'macfamlove01@gmail.com';
+const GithubUsername = 'XavierCTD';
 const urlToUsername = `https://api.github.com/users/${GithubUsername}/repos`
 
 fetch(urlToUsername)
   .then((response) => {
     if (!response.ok) {
-      throw new error(`HTTP Error: ${response.status} - ${response.statusText}`);
+      throw new error(`HTTP Error! Status: ${response.status}`);
     }
     return response.json();
   })
@@ -91,14 +91,18 @@ fetch(urlToUsername)
     const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul');
 
-    for(let i = 0; i < repositories.length; i++) {
+    repositories.forEach((repos) => {
     const project = document.createElement('li');
-     project.innerText = repositories[i].name;
-     projectList.appendChild(projectSection);
-   }
+     project.innerText = repos.name;
+     projectList.appendChild(project);
+   })
   })
   .catch((error) => {
     console.error('There was a problem with the fetch operation:', error);
-    projectSection.innerText = 'Error: Could not load projects.';
+
+    const projectSection = document.getElementById("Projects");
+    const errorMessage = document.createElement("p");
+    errorMessage.innerText = "Could not load projects. Please try again later.";
+    projectSection.appendChild(errorMessage);
   });
 
