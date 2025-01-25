@@ -107,6 +107,11 @@ textarea {
   text-decoration: none;
 }
 
+#Projects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 /* Class Elements */
 
@@ -258,6 +263,12 @@ textarea {
     text-decoration: none;
   }
 
+  #Projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   /* Media Class Elements 1 */
   
   .navigation {
@@ -403,6 +414,12 @@ textarea {
     font-size: 0.8em;
     color: lightgreen;
     text-decoration: none;
+  }
+
+  #Projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   /* Media Class Elements 2 */
