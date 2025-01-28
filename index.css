@@ -107,12 +107,6 @@ textarea {
   text-decoration: none;
 }
 
-#Projects {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 /* Class Elements */
 
 .navigation {
