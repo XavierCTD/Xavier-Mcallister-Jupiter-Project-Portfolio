@@ -65,3 +65,31 @@ if (messageForm) {
   });
 }
 
+// Creating Fetch API
+const projectSection = document.getElementById('projects');
+const projectList = projectSection.querySelector('ul');
+
+const githubUsername =  'XavierCTD';
+fetch(`https://api.github.com/users/${githubUsername}/repos`)
+.then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch repositories');
+    }
+    return response.json();
+  })
+  .then(repositories => {
+    console.log(repositories); 
+
+    repositories.forEach(repo => {
+      const project = document.createElement('li');
+      project.innerText = repo.name;
+      projectList.appendChild(project);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching repositories:', error);
+
+    const errorMessage = document.createElement('p');
+    errorMessage.innerText = 'Could not load repositories. Please try again later.';
+    projectSection.appendChild(errorMessage);
+  });
