@@ -77,7 +77,7 @@ fetch(`https://api.github.com/users/${githubUsername}/repos`)
   .then(repositories => {
     console.log(repositories); 
 
-    const projectSection = document.getElementById('projects');
+    const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul')
 
     repositories.forEach(repo => {
@@ -88,7 +88,7 @@ fetch(`https://api.github.com/users/${githubUsername}/repos`)
   })
   .catch(error => {
     console.error('Error fetching repositories:', error);
-    const projectSection = document.getElementById('projects');
+    const projectSection = document.getElementById('Projects');
     const errorMessage = document.createElement('p');
     errorMessage.innerText = 'Could not load repositories.';
     projectSection.appendChild(errorMessage);
