@@ -52,6 +52,16 @@ if (messageForm) {
 
       const removeButton = document.createElement('button');
       removeButton.innerText = 'remove';
+      removeButton.style.background = "linear-gradient(rgb(32, 25, 20), rgb(100, 45, 250), rgb(32, 25, 20))";
+      removeButton.style.border = "5px solid lightgreen";
+      removeButton.style.borderRadius = "8px";
+      removeButton.style.textDecoration = "none";
+      removeButton.style.textAlign = "center";
+      removeButton.style.float = "inherit";
+      removeButton.style.fontSize = "20px";
+      removeButton.style.padding = "10px";
+      removeButton.style.cursor = "pointer"
+      removeButton.style.transitionDuration = "1s";
       removeButton.type = 'button';
       removeButton.addEventListener("click", function () {
         newMessage.remove();
