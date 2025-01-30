@@ -44,7 +44,7 @@ if (messageForm) {
     console.log("User's Message:", usersMessage);
 
     const messageSection = document.getElementById('messages');
-    const messageList = messageSection?.querySelector('ul');
+    const messageList = messageSection.querySelector('ul');
     if (messageList) {
       const newMessage = document.createElement('li');
       newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
