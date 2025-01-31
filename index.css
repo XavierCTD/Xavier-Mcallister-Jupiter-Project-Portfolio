@@ -103,7 +103,6 @@ textarea {
   text-decoration: none;
 }
 
-
 /* Class Elements */
 
 .navigation {
@@ -180,7 +179,75 @@ textarea {
 
 /* Media Elements */
 
-@media (max-width: 480px) {
+
+@media(max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+  }
+  aside {
+   float: left;
+   margin: auto;
+  }
+  header {
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* Media Id Elements 1 */
+
+  #Experience, #Connect {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+    float: left;
+  }
+
+  #Projects, #About, #Experience, #Connect, #Leave_Message, #messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  } 
+
+  #projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    border: 5px dotted lightgreen;
+    background-color: rgb(50, 52, 63);
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 575px;
+  }
+
+  #projects-list > li > a:link, a:visited {
+    color: lightgreen;
+    text-decoration: none;
+  } 
+
+  #projects-list > li > a:hover, a:active {
+    text-decoration: underline;
+    text-align: justify;
+  }
+
+   #data {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: lightgreen;
+    text-decoration: none;
+  }
+
+  #Projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Media Class Elements 1 */
+  
   .navigation {
     max-width: fit-content;
     padding: 20px;
@@ -227,6 +294,15 @@ textarea {
 }
 
 @media (max-width: 620px) {
+
+  #Projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Media Class Elements 2 */
+  
   .navigation {
     max-width: fit-content;
     padding: 20px;
