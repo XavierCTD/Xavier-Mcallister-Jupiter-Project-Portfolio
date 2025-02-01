@@ -1,106 +1,58 @@
-// Adding Footer
-const contentFooter = document.querySelector('#content');
-const footerElement = document.createElement('footer');
-footerElement.innerHTML = "<fieldset><label class='bio'>Message Here.<textarea id='bio' name='bio' rows='5' cols='30'></textarea></label></fieldset>";
-footerElement.style.color = "darkblue";
-footerElement.style.textAlign = "center";
-footerElement.style.fontSize = "4rem";
-if (contentFooter) contentFooter.appendChild(footerElement);
+document.addEventListener("DOMContentLoaded", () => {
+  // Inserting copyright information in the footer.
+  
+  const footerText = document.getElementById("footer-text");
+  const currentYear = new Date().getFullYear();
+  footerText.innerHTML = `&copy; ${currentYear} Xavier Mcallister`;
 
-// Adding Date
-const today = new Date();
-const thisYear = today.getFullYear();
-const footer = document.getElementById('timing');
-if (footer) {
-  const copyright = document.createElement('p');
-  copyright.textContent = `Xavier Mcallister ${thisYear}.`;
-  footer.appendChild(copyright);
-}
+  // Populating skills list
 
-// Adding Skills
-const skills = ["JavaScript", "HTML", "CSS", "Very good with video games"];
-const skillsSection = document.getElementById('skills-list');
-const skillsList = document.querySelector('#skills-list ul');
-if (skillsList) {
+  const skills = ["HTML", "CSS", "GitHub"];
+  const skillsList = document.getElementById("skills-list");
   skills.forEach(skill => {
-    const skillItem = document.createElement('li');
-    skillItem.innerText = skill;
-    skillsList.appendChild(skillItem);
+      const li = document.createElement("li");
+      li.textContent = skill;
+      skillsList.appendChild(li);
   });
-}
 
-// Adding a Message Form
-const messageForm = document.forms["leave_message"];
-if (messageForm) {
-  messageForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+  // Handling the form submission.
 
-    const usersName = this.usersName.value;
-    const usersEmail = this.usersEmail.value;
-    const usersMessage = this.usersMessage.value;
-
-    console.log("User's Name:", usersName);
-    console.log("User's Email:", usersEmail);
-    console.log("User's Message:", usersMessage);
-
-    const messageSection = document.getElementById('messages');
-    const messageList = messageSection.querySelector('ul');
-    if (messageList) {
-      const newMessage = document.createElement('li');
-      newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
-      <span>${usersMessage}</span>`;
-
-      const removeButton = document.createElement('button');
-      removeButton.innerText = 'remove';
-      removeButton.style.background = "linear-gradient(rgb(32, 25, 20), rgb(100, 45, 250), rgb(32, 25, 20))";
-      removeButton.style.border = "5px solid lightgreen";
-      removeButton.style.borderRadius = "8px";
-      removeButton.style.textDecoration = "none";
-      removeButton.style.textAlign = "center";
-      removeButton.style.float = "inherit";
-      removeButton.style.fontSize = "20px";
-      removeButton.style.padding = "10px";
-      removeButton.style.cursor = "pointer"
-      removeButton.style.transitionDuration = "1s";
-      removeButton.type = 'button';
-      removeButton.addEventListener("click", function () {
-        newMessage.remove();
-      });
-
-      newMessage.appendChild(removeButton);
-      messageList.appendChild(newMessage);
-    }
-
-    this.reset();
+  const messageForm = document.getElementById("message-form");
+  const messagesList = document.getElementById("messages-list");
+  
+  messageForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      
+      const messageName = document.createElement("li");
+      messageName.innerHTML = `<strong><a href="mailto:${email}">${name}</a></strong>: ${message} <button class="remove">Remove</button>`;
+      
+      messagesList.appendChild(messageName);
+      
+      messageForm.reset();
   });
-}
-
-
-// Creating Fetch API
-const githubUsername =  'XavierCTD';
-fetch(`https://api.github.com/users/${githubUsername}/repos`)
-.then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to fetch repositories');
-    }
-    return response.json();
-  })
-  .then(repositories => {
-    console.log(repositories); 
-
-    const projectSection = document.getElementById('Projects');
-    const projectList = projectSection.querySelector('ul')
-
-    repositories.forEach(repo => {
-      const project = document.createElement('li');
-      project.innerText = repo.name;
-      projectList.appendChild(project);
-    });
-  })
-  .catch(error => {
-    console.error('Error fetching repositories:', error);
-    const projectSection = document.getElementById('Projects');
-    const errorMessage = document.createElement('p');
-    errorMessage.innerText = 'Could not load repositories.';
-    projectSection.appendChild(errorMessage);
+  
+  messagesList.addEventListener("click", (event) => {
+      if (event.target.classList.contains("remove")) {
+          event.target.parentElement.remove();
+      }
   });
+
+  // Fetching GitHub repositories.
+
+  const usernameAPI = "XavierCTD"
+  fetch(`https://api.github.com/users/${usernameAPI}/repos`)
+      .then(response => response.json())
+      .then(data => {
+          const projectsList = document.getElementById("projects-list");
+          data.forEach(repo => {
+              const messageName = document.createElement("li");
+              messageName.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+              projectsList.appendChild(messageName);
+          });
+      })
+      .catch(error => console.error("Error fetching repositories:", error));
+});
