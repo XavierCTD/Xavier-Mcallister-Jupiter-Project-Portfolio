@@ -1,95 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML" />
-    <meta name="author" content="Xavier Mcallister" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Jupiter Project Portfolio</title>
-  </head>
-  <body>
+    <title>Xavier's Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
     <header>
-      <nav class="info">
-        <div class="navigation">
-          <a href="#Skills" class="button">Skills</a>
-          <a href="#Projects" class="button">Projects</a>
-          <a href="#About" class="button">About</a>
-          <a href="#Experience" class="button">Experience</a>
-          <a href="#Connect" class="button">Connect</a>
-        </div>
-      </nav>
-      <h1 class="name">Xavier Mcallister</h1>
+        <h1>Xavier Mcallister</h1>
+        <nav class="list">
+            <ul>
+              <li><a href="#about" class="button">About</a></li>
+              <li><a href="#experience" class="button">Experience</a></li>
+              <li><a href="#skills" class="button">Skills</a></li>
+              <li><a href="#projects" class="button">Projects</a></li>
+              <li><a href="#contact" class="button">Leave a Message</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-      <section id="Skills">
-        <h2><span class="flex">Skills:</span></h2>
-        <ul id="skills-list">
     
-        </ul>
-      </section>
-
-      <section id="Projects">
-        <h2><span class="flex">Projects:</span></h2>
-        <ul id="projects-list">
-          
-        </ul>
-      </section>
-
-      <section id="About">
-        <h2><span class="flex">About:</span></h2>
-        <p>I have a cat that I love very much. Her name is Zoey, and she is 4 years old.</p>
-      </section>
-
-      <section id="Experience">
-        <h2><span class="flex">Experience:</span></h2>
-        <ul>
-          <li>
-            ThunderBird LLC. Thunderbird is a plastic corporation that creates plastics and delivers them to customers. 
-            I worked there for about 3 years, gaining experience in manufacturing and customer satisfaction.
-          </li>
-        </ul>
-      </section>
-
-      <section id="messages">
-        <h2><span class="flex">Messages</span></h2>
-        <div id="content">
-          <ul></ul>
+    <section id="about">
+      <h2>About</h2>
+        <p>My name is Xavier Mcallister. I live with my parents home and I'm looking for a good job. I believe CTD can help me with this.</p>
+    </section>
+    
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-container">
+          <p>I work at the Thunderbird Molding Coperation facility. It pays good money, but not enough to buy a home. I love video games and I have a cat that I love very much named Zoey.</p>
         </div>
-      </section>
-
-      <section id="leave-message">
-        <h2><span class="flex">Leave a Message</span></h2>
-        <form name="leave_message">
-          <label for="usersName">Username:</label>
-          <input class="users_info" type="text" id="usersName" name="usersName" required /><br />
-
-          <label for="usersEmail">E-mail:</label>
-          <input class="users_info" type="email" id="usersEmail" name="usersEmail" required /><br />
-
-          <label for="usersMessage">Message:</label>
-          <textarea class="users_info" id="usersMessage" name="usersMessage" required></textarea><br />
-
-          <button class="accept" type="submit">Submit</button>
+    </section>
+    
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul id="skills-list"></ul>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul id="projects-list"></ul>
+    </section>
+    
+    <section id="contact">
+        <h2>Leave a Message</h2>
+        <form id="message-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            
+            <button type="submit">Submit</button>
         </form>
-      </section>
-
-      <section id="Connect">
-        <h2><span class="flex">Connect:</span></h2>
-        <div class="container">
-          <div>
-            <a href="https://github.com/dashboard" target="_blank">GitHub Link</a>
-          </div>
-          <div>
-            <a href="https://mail.google.com/mail/u/1/?ogbl#label/CTD" target="_blank">Gmail Link</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer id="timing"></footer>
-
-    <script src="index.js" defer></script>
-  </body>
+        <h2>Messages</h2>
+        <ul id="messages-list"></ul>
+    </section>
+    
+    <footer>
+        <p id="footer-text"></p>
+    </footer>
+</body>
 </html>
+
 
