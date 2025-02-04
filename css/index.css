@@ -1,4 +1,4 @@
-/* General Styles */
+/* Main Elements */
 body {
   font-family: Arial, sans-serif;
   margin: 0 auto;
@@ -39,6 +39,18 @@ button {
   height: fit-content;
 }
 
+span {
+  text-align: justify;
+  margin: auto;
+}
+
+/* Class Elements */
+
+.list {
+  display: grid;
+  gap: 5px;
+}
+
 .list > ul > li {
   display: inline;
   padding: 8px;
@@ -64,6 +76,8 @@ button {
   box-shadow: 0 0 15px rgb(30, 100, 30);
 }
 
+/* Id Elements */
+
 #projects-list {
   display: flex;
   flex-direction: column;
@@ -84,11 +98,6 @@ button {
   margin: auto;
   padding: 5px;
   text-decoration: none;
-}
-
-.list {
-  display: grid;
-  gap: 5px;
 }
 
 #full-name {
