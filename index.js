@@ -12,34 +12,44 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Inserting copyright information in the footer.
-  
+  /* Inserting copyright information in the footer. */
   const footerText = document.getElementById("footer-text");
   const currentYear = new Date().getFullYear();
   footerText.innerHTML = `&copy; ${currentYear} Xavier Mcallister`;
+  
 
-  // Populating skills list
+  /* Populating skills list */
 
+
+  // Array of skills.
   const skills = ["HTML", "CSS", "GitHub"];
   const skillsList = document.getElementById("skills-list");
+
+  // Creating a list for each skills.
   skills.forEach(skill => {
       const li = document.createElement("li");
       li.textContent = skill;
       skillsList.appendChild(li);
   });
 
-  // Handling the form submission.
+  /* Handling the form submission. */
 
+
+  // Manipulating the DOM to get the ID of the message form and list.
   const messageForm = document.getElementById("message-form");
   const messagesList = document.getElementById("messages-list");
+
   
+  // Adding a submit button by implementing a addEventListener through the message form.
   messageForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      
+
+ // Getting the ID's of each form of the value.   
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
-      
+
+ // Creating a list element and using innerHTML from the list element that was created. (innerHTML converts and connects the HTML file from the JavaScript file)    
       const messageName = document.createElement("li");
       messageName.innerHTML = `<strong><a href="mailto:${email}">${name}</a></strong>: ${message} <button class="remove">Remove</button>`;
       
@@ -47,7 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
       
       messageForm.reset();
   });
-  
+
+
+// Adding a remove button using the parentElement and addEventlistener.
   messagesList.addEventListener("click", (event) => {
       if (event.target.classList.contains("remove")) {
           event.target.parentElement.remove();
