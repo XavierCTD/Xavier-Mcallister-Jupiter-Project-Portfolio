@@ -1,3 +1,16 @@
+/*This is a multi-line comment that I will explain to you in detail from the following file. 
+  Index.js: This is the entire document that will be functioning within this JavaScript file. I've done this by using the DOMContentLoaded to the addEventListener call. This will make sure
+  that the file is operating smoothly.
+  
+  Within this document contains the date year, copyright, skills list that connects from the skills section on the HTML File, the message form that handles the messages (The message form uses
+  multiple ID selectors from the HTML file, then it adds an event listener that will ensure that the submit and remove buttons operates. The remove button targets the parent/main element from the
+  current call it contains) and the fetching sequence that acts similar to a <a> element from an HTML file. The main difference between the fetch and <a> element is that the <a> element does not 
+  retrieve the properties and modifiy the content. It only uses the HTTP link. Within the fetching sequence contains the HTTPS link, Json (Node) response that retrieves and calls the data. Since 
+  there are multiple repositories, it was nessesary to use the forEach method (that acts like an array of objects) to create a list of repositories via through an html_url(link) and the name of the
+  repository. The fetching sequence finally uses the catch method that uses the error callback function. This callback function will describe the error by using the console.error method. Overall, 
+  the JavaScript file was the most challenging and difficult file I've done so far, but I finally figured out the pattern of coding. It was simply connecting one code to another.*/
+
+
 document.addEventListener("DOMContentLoaded", () => {
   // Inserting copyright information in the footer.
   
