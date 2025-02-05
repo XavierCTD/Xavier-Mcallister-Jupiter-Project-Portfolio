@@ -1,0 +1,145 @@
+/* Main Elements */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0 auto;
+  background-color: rgb(50, 50, 50);
+  color: lightgreen;
+}
+
+header {
+  padding: 1em;
+  text-align: center;
+}
+
+
+section {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background: black;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgb(30, 80, 100)
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(50, 50, 50);
+  color: antiquewhite;
+  margin-top: 20px;
+}
+
+button {
+  color: lightgreen;
+  background-color: rgb(50, 50, 50);
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+
+
+span {
+  text-align: justify;
+  margin: auto;
+}
+
+/* Class Elements */
+
+.list {
+  display: grid;
+  gap: 5px;
+}
+
+
+.list > ul > li {
+  display: inline;
+  padding: 8px;
+  list-style: none;
+}
+
+.list > ul > li > a {
+  color: aqua;
+  background-color: black;
+  background-origin: padding-box;
+  box-shadow: 0 0 15px rgb(30, 80, 100);
+  border: 5px solid black;
+  border-radius: 8px;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.list > ul > li > a:hover {
+  color: lightgreen;
+  background-color: black;
+  background-origin: padding-box;
+  box-shadow: 0 0 15px rgb(30, 100, 30);
+}
+
+/* Id Elements */
+
+
+#projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#projects-list > li > a:link, a:visited {
+  background: rgb(50, 50, 50);
+  color: antiquewhite;
+  margin: auto;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#projects-list li a:hover, a:active {
+  background-color: aqua;
+  color: antiquewhite;
+  margin: auto;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#full-name {
+  border: 10px solid aqua;
+  border-radius: 10px;
+  color: aqua;
+  box-shadow: 0 0 15px rgb(30, 80, 100);
+  padding: 5px;
+}
+
+#footer-text {
+  color: lightgreen;
+}
+
+span {
+  text-align: justify;
+  margin: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    font-family: italic, serif;
+  }
+
+  nav ul {
+      text-align: justify;
+      font-size: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  body {
+    font-family: italic, serif;
+  }
+
+  nav ul {
+      text-align: justify;
+      font-size: 10px;
+  }
+}

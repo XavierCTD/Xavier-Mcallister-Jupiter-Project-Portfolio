@@ -1,106 +1,90 @@
-// Adding Footer
-const contentFooter = document.querySelector('#content');
-const footerElement = document.createElement('footer');
-footerElement.innerHTML = "<fieldset><label class='bio'>Message Here.<textarea id='bio' name='bio' rows='5' cols='30'></textarea></label></fieldset>";
-footerElement.style.color = "darkblue";
-footerElement.style.textAlign = "center";
-footerElement.style.fontSize = "4rem";
-if (contentFooter) contentFooter.appendChild(footerElement);
+/*This is a multi-line comment that I will explain to you in detail from the following file. 
+  Index.js: This is the entire document that will be functioning within this JavaScript file. I've done this by using the DOMContentLoaded to the addEventListener call. This will make sure
+  that the file is operating smoothly.
+  
+  Within this document contains the date year, copyright, skills list that connects from the skills section on the HTML File, the message form that handles the messages (The message form uses
+  multiple ID selectors from the HTML file, then it adds an event listener that will ensure that the submit and remove buttons operates. The remove button targets the parent/main element from the
+  current call it contains) and the fetching sequence that acts similar to a <a> element from an HTML file. The main difference between the fetch and <a> element is that the <a> element does not 
+  retrieve the properties and modifiy the content. It only uses the HTTP link. Within the fetching sequence contains the HTTPS link, Json (Node) response that retrieves and calls the data. Since 
+  there are multiple repositories, it was nessesary to use the forEach method (that acts like an array of objects) to create a list of repositories via through an html_url(link) and the name of the
+  repository. The fetching sequence finally uses the catch method that uses the error callback function. This callback function will describe the error by using the console.error method. Overall, 
+  the JavaScript file was the most challenging and difficult file I've done so far, but I finally figured out the pattern of coding. It was simply connecting one code to another.*/
 
-// Adding Date
-const today = new Date();
-const thisYear = today.getFullYear();
-const footer = document.getElementById('timing');
-if (footer) {
-  const copyright = document.createElement('p');
-  copyright.textContent = `Xavier Mcallister ${thisYear}.`;
-  footer.appendChild(copyright);
-}
 
-// Adding Skills
-const skills = ["JavaScript", "HTML", "CSS", "Very good with video games"];
-const skillsSection = document.getElementById('skills-list');
-const skillsList = document.querySelector('#skills-list ul');
-if (skillsList) {
+document.addEventListener("DOMContentLoaded", () => {
+  /* Inserting copyright information in the footer. */
+  const footerText = document.getElementById("footer-text");
+  const currentYear = new Date().getFullYear();
+  footerText.innerHTML = `&copy; ${currentYear} Xavier Mcallister`;
+  
+
+  /* Populating skills list */
+
+
+  // Array of skills.
+  const skills = ["HTML", "CSS", "GitHub"];
+  const skillsList = document.getElementById("skills-list");
+
+  // Creating a list for each skills.
   skills.forEach(skill => {
-    const skillItem = document.createElement('li');
-    skillItem.innerText = skill;
-    skillsList.appendChild(skillItem);
+      const li = document.createElement("li");
+      li.textContent = skill;
+      skillsList.appendChild(li);
   });
-}
 
-// Adding a Message Form
-const messageForm = document.forms["leave_message"];
-if (messageForm) {
-  messageForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+  /* Handling the form submission. */
 
-    const usersName = this.usersName.value;
-    const usersEmail = this.usersEmail.value;
-    const usersMessage = this.usersMessage.value;
 
-    console.log("User's Name:", usersName);
-    console.log("User's Email:", usersEmail);
-    console.log("User's Message:", usersMessage);
+  // Manipulating the DOM to get the ID of the message form and list.
+  const messageForm = document.getElementById("message-form");
+  const messagesList = document.getElementById("messages-list");
 
-    const messageSection = document.getElementById('messages');
-    const messageList = messageSection.querySelector('ul');
-    if (messageList) {
-      const newMessage = document.createElement('li');
-      newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
-      <span>${usersMessage}</span>`;
+  
+  // Adding a submit button by implementing a addEventListener through the message form.
+  messageForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-      const removeButton = document.createElement('button');
-      removeButton.innerText = 'remove';
-      removeButton.style.background = "linear-gradient(rgb(32, 25, 20), rgb(100, 45, 250), rgb(32, 25, 20))";
-      removeButton.style.border = "5px solid lightgreen";
-      removeButton.style.borderRadius = "8px";
-      removeButton.style.textDecoration = "none";
-      removeButton.style.textAlign = "center";
-      removeButton.style.float = "inherit";
-      removeButton.style.fontSize = "20px";
-      removeButton.style.padding = "10px";
-      removeButton.style.cursor = "pointer"
-      removeButton.style.transitionDuration = "1s";
-      removeButton.type = 'button';
-      removeButton.addEventListener("click", function () {
-        newMessage.remove();
-      });
+ // Getting the ID's of each form of the value.   
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
 
-      newMessage.appendChild(removeButton);
-      messageList.appendChild(newMessage);
-    }
-
-    this.reset();
+ // Creating a list element and using innerHTML from the list element that was created. (innerHTML converts and connects the HTML file from the JavaScript file)    
+      const messageName = document.createElement("li");
+      messageName.innerHTML = `<strong><a href="mailto:${email}">${name}</a></strong>: ${message} <button class="remove">Remove</button>`;
+      
+      messagesList.appendChild(messageName);
+      
+      messageForm.reset();
   });
-}
 
 
-// Creating Fetch API
-const githubUsername =  'XavierCTD';
-fetch(`https://api.github.com/users/${githubUsername}/repos`)
-.then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to fetch repositories');
-    }
-    return response.json();
-  })
-  .then(repositories => {
-    console.log(repositories); 
-
-    const projectSection = document.getElementById('Projects');
-    const projectList = projectSection.querySelector('ul')
-
-    repositories.forEach(repo => {
-      const project = document.createElement('li');
-      project.innerText = repo.name;
-      projectList.appendChild(project);
-    });
-  })
-  .catch(error => {
-    console.error('Error fetching repositories:', error);
-    const projectSection = document.getElementById('Projects');
-    const errorMessage = document.createElement('p');
-    errorMessage.innerText = 'Could not load repositories.';
-    projectSection.appendChild(errorMessage);
+// Adding a remove button using the parentElement and addEventlistener.
+  messagesList.addEventListener("click", (event) => {
+      if (event.target.classList.contains("remove")) {
+          event.target.parentElement.remove();
+      }
   });
+
+  // Fetching GitHub repositories.
+
+  const usernameAPI = "XavierCTD"
+  fetch(`https://api.github.com/users/${usernameAPI}/repos`)
+      .then(response => response.json())
+      .then(data => {
+          const projectsList = document.getElementById("projects-list");
+          data.forEach(repo => {
+              const messageName = document.createElement("li");
+              messageName.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+              projectsList.appendChild(messageName);
+          });
+      })
+      .catch(error => console.error("Error fetching repositories:", error));
+});
+
+  // Adding a paragraph for the contact section
+
+  const contactInfo = document.getElementById("connect");
+  const contactName = document.createElement("p");
+  contactName.innerHTML = "<strong>For more infomation about my profile click up here.</strong>";
+  contactInfo.appendChild(contactName);
