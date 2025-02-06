@@ -139,7 +139,8 @@ span {
   }
 
   nav ul {
-      text-align: justify;
+      display: flex;
       font-size: 10px;
+      padding: 5px;
   }
 }
