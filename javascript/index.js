@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error("Error fetching repositories:", error));
 });
 
+
   // Adding a paragraph for the contact section
 
   const contactInfo = document.getElementById("connect");
