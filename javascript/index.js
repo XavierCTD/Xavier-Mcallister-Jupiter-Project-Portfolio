@@ -81,3 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(error => console.error("Error fetching repositories:", error));
 });
+
+
+  // Adding a paragraph for the contact section
+
+  const contactInfo = document.getElementById("connect");
+  const contactName = document.createElement("p");
+  contactName.innerHTML = "<strong>For more infomation about my profile click up here.</strong>";
+  contactInfo.appendChild(contactName);
